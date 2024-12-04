@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "xgb_travel_app",
+    "password": "ZJwzS7R-VXdW",
+    "database": "xgb_travel_app",
+    "host": "postgres81.1gb.ru",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "xgb_travel_app",
+    "password": "ZJwzS7R-VXdW",
+    "database": "xgb_travel_app",
+    "host": "postgres81.1gb.ru",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "xgb_travel_app",
+    "password": "ZJwzS7R-VXdW",
+    "database": "xgb_travel_app",
+    "host": "postgres81.1gb.ru",
+    "dialect": "postgres"
+  }
+}
