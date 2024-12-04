@@ -1,15 +1,15 @@
-FROM node:20.12.2
+FROM node:alpine AS node
 
 # Create app directory
 WORKDIR /app
+COPY . .
 
-COPY package.json package-lock.json ./
+COPY package.json ./
 
 
 RUN npm install
 
 # Bundle app source
-COPY . .
 
 EXPOSE 3000
 
