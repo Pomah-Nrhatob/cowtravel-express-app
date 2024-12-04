@@ -5,8 +5,6 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN apk add --no-cache pkgconfig
-
 
 RUN npm install
 
