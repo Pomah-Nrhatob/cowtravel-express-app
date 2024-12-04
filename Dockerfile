@@ -3,7 +3,10 @@ FROM node:10
 # Create app directory
 WORKDIR /app
 
-COPY package*.json .
+COPY package*.json ./
+
+RUN apk add --no-cache pkgconfig
+
 
 RUN npm install
 
