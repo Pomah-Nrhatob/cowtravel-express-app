@@ -6,7 +6,6 @@ services:
       - "3000:3000"
     depends_on:
       - db
-      - react-app
     environment:
       DATABASE_URL: "postgresql://postgres:Romazaloko123.@95.163.230.74:5432/postgres"
   db: # База данных
