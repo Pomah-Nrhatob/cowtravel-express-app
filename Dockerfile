@@ -1,6 +1,5 @@
 FROM node:10
 
-RUN apk update
 
 # Create app directory
 WORKDIR /app
