@@ -1,10 +1,9 @@
-FROM node:18.16-alpine
-
+FROM node:19-alpine
 
 # Create app directory
 WORKDIR /app
 
-COPY package.json ./
+COPY package.json package-lock.json ./
 
 
 RUN npm install
