@@ -1,4 +1,4 @@
-FROM node:alpine AS node
+FROM node:14
 
 # Create app directory
 WORKDIR /app
