@@ -6,25 +6,24 @@ services:
     build: .
     ports:
       - "3000:3000"
-    environment:
-      - PG_DB=postgres-cowtravel
-      - PG_USER=postgres
-      - PG_PASSWORD=Romazaloko123.
-      - PG_HOST=node_db
-    depends_on:
-      - node_db
+    # environment:
+    #   - PG_DB=postgres-cowtravel
+    #   - PG_USER=postgres
+    #   - PG_PASSWORD=Romazaloko123.
+    #   - PG_HOST=node_db
+    # depends_on:
+    #   - node_db
+#   node_db:
+#     container_name: node_db
+#     image: postgres:12
+#     ports:
+#       - "5432:5432"
+#     environment:
+#       - POSTGRES_DB=postgres-cowtravel
+#       - POSTGRES_USER=postgres
+#       - POSTGRES_PASSWORD=Romazaloko123.
+#     volumes:
+#       - node_db_data:/var/lib/postgresql/data
 
-  node_db:
-    container_name: node_db
-    image: postgres:12
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_DB=postgres-cowtravel
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=Romazaloko123.
-    volumes:
-      - node_db_data:/var/lib/postgresql/data
-
-volumes:
-  node_db_data: {}
+# volumes:
+#   node_db_data: {}
