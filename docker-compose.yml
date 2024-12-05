@@ -7,10 +7,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - PG_DB=postgres-cowtravel
-      - PG_USER=postgres
-      - PG_PASSWORD=Romazaloko123.
-      - PG_HOST=node_db
+      DATABASE_URL: "postgresql://postgres:Romazaloko123.@node_db:27017/mydatabase?authSource=admin&directConnection=true"
     depends_on:
       - node_db
 
@@ -18,9 +15,8 @@ services:
     container_name: node_db
     image: postgres:12
     ports:
-      - "5432:5432"
+      - "27017:27017"
     environment:
-      - POSTGRES_DB=postgres-cowtravel
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=Romazaloko123.
     volumes:

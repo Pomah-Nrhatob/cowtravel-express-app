@@ -4,13 +4,13 @@ const { config } = require("dotenv");
 config();
 
 const sequelize = new Sequelize(
-  "postgres-cowtravel",
-  "postgres",
-  "Romazaloko123.",
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
   {
     dialect: "postgres",
-    host: "node_db",
-    port: "5432",
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
   },
   { sync: true }
 );
