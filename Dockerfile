@@ -3,14 +3,13 @@ FROM node:alpine AS node
 # Create app directory
 WORKDIR /app
 
-COPY . .
 
 COPY package.json package-lock.json ./
 
 
 RUN npm install
 
-# Bundle app source
+COPY . .
 
 EXPOSE 3000
 
