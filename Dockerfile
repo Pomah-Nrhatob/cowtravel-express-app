@@ -2,9 +2,10 @@ FROM node:alpine AS node
 
 # Create app directory
 WORKDIR /app
+
 COPY . .
 
-COPY package.json ./
+COPY package.json package-lock.json ./
 
 
 RUN npm install
