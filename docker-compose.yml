@@ -10,7 +10,7 @@ services:
       - PG_DB=postgres-cowtravel
       - PG_USER=postgres
       - PG_PASSWORD=Romazaloko123.
-      - PG_HOST=db:3306
+      - PG_HOST=db
     depends_on:
       - node_db
 
@@ -18,7 +18,7 @@ services:
     container_name: node_db
     image: postgres:12
     ports:
-      - "5432:5432"
+      - "3306:3306"
     environment:
       - POSTGRES_DB=postgres-cowtravel
       - POSTGRES_USER=postgres
