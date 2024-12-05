@@ -10,7 +10,7 @@ services:
       - PG_DB=postgres-cowtravel
       - PG_USER=postgres
       - PG_PASSWORD=Romazaloko123.
-      - PG_HOST=95.163.230.74
+      - PG_HOST=db:3306
     depends_on:
       - node_db
 
