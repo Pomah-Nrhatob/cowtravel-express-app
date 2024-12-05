@@ -18,7 +18,7 @@ services:
     container_name: node_db
     image: postgres:12
     port:
-      - "5432"
+      - "5432:5432"
     environment:
       - POSTGRES_DB=postgres-cowtravel
       - POSTGRES_USER=postgres
