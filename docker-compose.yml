@@ -11,9 +11,8 @@ services:
   db:
     image: postgres
     environment:
-      - MYSQL_DATABASE=mydb
-      - MYSQL_USER=cowtravel_user
-      - MYSQL_PASSWORD=Romazaloko123.
+      - POSTGRES_USER=cowtravel_user
+      - POSTGRES_PASSWORD=Romazaloko123.
     volumes:
       - db-data:/var/lib/postgres
 
