@@ -7,7 +7,7 @@ services:
     depends_on:
       - pg_db
     environment:
-      - DATABASE_URL=postgresql://root:Romazaloko123.@pg_db:3306/mydb
+      - DATABASE_URL=postgresql://root:Romazaloko123.@pg_db:5432/mydb
   pg_db:
     image: postgres
     environment:
