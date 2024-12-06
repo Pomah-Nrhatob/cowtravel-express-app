@@ -9,7 +9,7 @@ const sequelize = new Sequelize(
   process.env.DB_PASSWORD,
   {
     dialect: "postgres",
-    host: process.env.DB_HOST,
+    host: "pg_db",
     port: process.env.DB_PORT,
   },
   { sync: true }
