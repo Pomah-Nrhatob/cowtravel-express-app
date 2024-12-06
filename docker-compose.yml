@@ -7,11 +7,11 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_URL=postgresql://cowtravel_user:Romazaloko123.@db:3306/mydb
+      - DATABASE_URL=postgresql://root:Romazaloko123.@db:3306/mydb
   db:
     image: postgres
     environment:
-      - POSTGRES_USER=cowtravel_user
+      - POSTGRES_USER=root
       - POSTGRES_PASSWORD=Romazaloko123.
     volumes:
       - db-data:/var/lib/postgres
