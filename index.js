@@ -7,12 +7,13 @@ const router = require("./routes/index.js");
 const PORT = process.env.PORT || 5000;
 const errorMiddleware = require("./middlewares/errorMiddleware.js");
 const path = require("path");
+const { ALL } = require("dns");
 
 const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: process.env.CLIENT_URL,
+    origin: ALL,
   })
 );
 app.use(express.json({ extend: true }));
