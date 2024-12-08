@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_DB: yourdbname
       POSTGRES_USER: yourusername
-      POSTGRES_PASSWORD: yourpassword
+      POSTGRES_PASSWORD: Romazaloko123.
   app:
     build: .
     command: npm start
