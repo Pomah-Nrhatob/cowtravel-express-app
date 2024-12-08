@@ -1,21 +1,20 @@
-version: "3.8"
+version: "3"
 services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: yourdbname
+      POSTGRES_USER: yourusername
+      POSTGRES_PASSWORD: yourpassword
   app:
     build: .
+    command: npm start
+    env_file:
+      - .env
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     ports:
       - "3000:3000"
     depends_on:
-      - pg_db
-    environment:
-      - DATABASE_URL=postgresql://root:Romazaloko123.@pg_db:5432/mydb
-  pg_db:
-    image: postgres
-    environment:
-      - POSTGRES_HOST=pg_db
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=Romazaloko123.
-    volumes:
-      - db-data:/var/lib/postgres
-
-volumes:
-  db-data:
+      - db
