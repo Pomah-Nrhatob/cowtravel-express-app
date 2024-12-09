@@ -20,6 +20,6 @@ services:
       - db
       - react-app
   react-app:
-    build: ../client
+    build: ../cowtravel-react-app
     ports:
       - "80:80"
