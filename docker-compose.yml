@@ -19,16 +19,6 @@ services:
     depends_on:
       - db
       - react-app
-  nginx:
-    container_name: cowtravel_nginx
-    image: nginx:latest
-    ports:
-      - "${SSL_PORT}:443"
-      - "${HTTP_PORT}:80"
-    volumes:
-      - /var/www/html
-      - /etc/letsencrypt/ssl/fullchain.pem:/etc/nginx/ssl/fullchain.pem
-      - /etc/letsencrypt/ssl/privkey.pem:/etc/nginx/ssl/privkey.pem
   react-app:
     build: ../cowtravel-react-app
     ports:
