@@ -23,3 +23,13 @@ services:
     build: ../cowtravel-react-app
     ports:
       - "80:80"
+  nginx:
+    container_name: cowtravel_nginx
+    image: nginx:latest
+    ports:
+      - "${SSL_PORT}:443"
+      - "${HTTP_PORT}:80"
+    volumes:
+      - /var/www/html
+      - /etc/letsencrypt/ssl/fullchain.pem:/etc/nginx/ssl/fullchain.pem
+      - /etc/letsencrypt/ssl/privkey.pem:/etc/nginx/ssl/privkey.pem
