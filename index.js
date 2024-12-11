@@ -13,7 +13,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: ALL,
+    origin: "http://cowtravel.ru",
   })
 );
 app.use(express.json({ extend: true }));
