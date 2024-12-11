@@ -1,25 +1,24 @@
 version: "3"
 services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - react-app
   db:
     image: postgres
     environment:
       POSTGRES_DB: yourdbname
       POSTGRES_USER: yourusername
       POSTGRES_PASSWORD: Romazaloko123.
-  app:
-    build: .
-    command: npm start
-    env_file:
-      - .env
     volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-    ports:
-      - "3000:3000"
-    depends_on:
-      - db
-      - react-app
+      - ./postgresql/data:/var/lib/postgresql/data
   react-app:
     build: ../cowtravel-react-app
     ports:
       - "80:80"
+      - "8000:8000"
+  volumes:
+    react-app:
