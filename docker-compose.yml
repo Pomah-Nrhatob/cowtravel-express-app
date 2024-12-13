@@ -7,6 +7,8 @@ services:
     depends_on:
       - db
       - react-app
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
   db:
     image: postgres
     environment:
@@ -20,5 +22,4 @@ services:
     ports:
       - "80:80"
       - "8000:8000"
-    volumes:
-      - /etc/letsencrypt:/etc/letsencrypt
+      - "443:443"
