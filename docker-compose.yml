@@ -20,7 +20,11 @@ services:
     build: ../cowtravel-react-app
     ports:
       - "80:80"
-      - "8000:8000"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./letsencrypt/live/cowtravel.ru/fullchain.pem:/etc/letsencrypt/live/cowtravel.ru/fullchain.pem
+      - ./letsencrypt/live/cowtravel.ru/privkey.pem:/etc/letsencrypt/live/cowtravel.ru/privkey.pem
 
   # nginx:
   #   build: ../cowtravel-react-app/nginx
