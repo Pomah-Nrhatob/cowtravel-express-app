@@ -18,11 +18,14 @@ services:
 
   react-app: # React-приложение
     build: ../cowtravel-react-app
-
-  nginx:
-    build: ../cowtravel-react-app/nginx
     ports:
       - "80:80"
-    volumes:
-      - /var/www/html:/usr/share/nginx/html
-    restart: always
+      - "8000:8000"
+
+  # nginx:
+  #   build: ../cowtravel-react-app/nginx
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - /var/www/html:/usr/share/nginx/html
+  #   restart: always
