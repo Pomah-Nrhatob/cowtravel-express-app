@@ -7,6 +7,8 @@ services:
     depends_on:
       - db
       - react-app
+    volumes:
+      - /etc/letsencrypt/live/cowtravel.ru:/etc/nginx/conf.d
   db:
     image: postgres
     environment:
@@ -20,5 +22,3 @@ services:
     ports:
       - "80:80"
       - "8000:8000"
-    volumes:
-      - /etc/letsencrypt/live/cowtravel.ru:/etc/nginx/conf.d
