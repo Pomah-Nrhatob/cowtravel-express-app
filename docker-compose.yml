@@ -7,8 +7,6 @@ services:
     depends_on:
       - db
       - react-app
-    volumes:
-      - /etc/letsencrypt:/etc/letsencrypt
   db:
     image: postgres
     environment:
