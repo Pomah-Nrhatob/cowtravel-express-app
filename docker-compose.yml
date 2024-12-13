@@ -21,16 +21,3 @@ services:
     ports:
       - "80:80"
       - "8000:8000"
-
-  nginx:
-    container_name: nginx
-    image: nginx:latest
-    depends_on:
-      - app
-      - react-app
-    volumes:
-      - /etc/letsencrypt/:/etc/letsencrypt/
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-    ports:
-      - "80:80"
-      - "443:443"
