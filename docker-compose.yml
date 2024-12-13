@@ -13,10 +13,13 @@ services:
       POSTGRES_DB: yourdbname
       POSTGRES_USER: yourusername
       POSTGRES_PASSWORD: Romazaloko123.
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data
   react-app:
     build: ../cowtravel-react-app
     ports:
       - "80:80"
       - "8000:8000"
     volumes:
-      - ./postgresql/data:/var/lib/postgresql/data
+      - /etc/letsencrypt/live/cowtravel.ru.fullchain.pem:/etc/letsencrypt/live/cowtravel.ru.fullchain.pem
+      - /etc/letsencrypt/live/cowtravel.ru.privkey.pem:/etc/letsencrypt/live/cowtravel.ru.privkey.pem
