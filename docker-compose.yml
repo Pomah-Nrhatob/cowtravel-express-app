@@ -1,14 +1,28 @@
 version: "3"
 services:
+  nginx:
+    image: nginx:latest
+    depends_on:
+      - app
+      - react-app
+    volumes:
+      - /etc/letsencrypt/:/etc/letsencrypt/
+      - ./cowtravel:/usr/src/app/build
+      - ./nginx/main.conf:/etc/nginx/conf.d/default.conf
+    ports: -"80:80"
+
+  react-app:
+    build: ../cowtravel-react-app
+    container_name: react-app
+
   app:
+    container_name: app
     build: .
     ports:
       - "3000:3000"
     depends_on:
       - db
-      - react-app
-    volumes:
-      - /etc/letsencrypt/live/cowtravel.ru/:/etc/letsencrypt/live/cowtravel.ru/
+
   db:
     image: postgres
     environment:
@@ -17,11 +31,3 @@ services:
       POSTGRES_PASSWORD: Romazaloko123.
     volumes:
       - ./postgresql/data:/var/lib/postgresql/data
-  react-app:
-    build: ../cowtravel-react-app
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - /etc/letsencrypt/:/etc/letsencrypt/
-      - ./nginx/main.conf:/etc/nginx/conf.d/default.conf
