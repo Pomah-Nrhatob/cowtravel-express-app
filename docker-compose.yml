@@ -20,9 +20,9 @@ services:
     build: ../cowtravel-react-app
 
   nginx:
-    image: nginx:latest
+    build: ../cowtravel-react-app/nginx
     ports:
-      - "9999:80"
+      - "80:80"
     volumes:
       - /var/www/html:/usr/share/nginx/html
     restart: always
