@@ -1,5 +1,9 @@
 version: "3"
 services:
+  react-app:
+    build: ../cowtravel-react-app
+    container_name: react-app
+
   nginx:
     image: nginx:latest
     depends_on:
@@ -12,10 +16,6 @@ services:
     ports:
       - "80:80"
       - "443:443"
-
-  react-app:
-    build: ../cowtravel-react-app
-    container_name: react-app
 
   app:
     container_name: app
