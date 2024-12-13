@@ -21,4 +21,4 @@ services:
       - "80:80"
       - "8000:8000"
     volumes:
-      - /etc/letsencrypt/live/cowtravel.ru:/etc/nginx/ssl
+      - /etc/letsencrypt/live/cowtravel.ru:/etc/nginx/conf.d
