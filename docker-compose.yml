@@ -7,7 +7,9 @@ services:
     depends_on:
       - db
       - react-app
-    volumes: -/etc/letsencrypt/live/cowtravel.ru./:/etc/letsencrypt/live/cowtravel.ru/
+    volumes:
+      - /etc/letsencrypt/live/cowtravel.ru.fullchain.pem:/etc/letsencrypt/live/cowtravel.ru.fullchain.pem
+      - /etc/letsencrypt/live/cowtravel.ru.privkey.pem:/etc/letsencrypt/live/cowtravel.ru.privkey.pem
   db:
     image: postgres
     environment:
