@@ -13,7 +13,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: "http://83.222.27.205",
+    origin: "http://cowtravel.ru",
   })
 );
 app.use(express.json({ extend: true }));
