@@ -20,16 +20,4 @@ services:
     build: ../cowtravel-react-app
     ports:
       - "80:80"
-
-  # nginx:
-  #   build:
-  #     context: ../cowtravel-react-app/nginx
-  #   ports:
-  #     - "80:80"
-  #     - "443:443"
-  #   volumes:
-  #     - /usr/src/app/build:/usr/share/nginx/html
-  #   links:
-  #     - "app"
-  #     - "db"
-  #     - "react-app"
+      - "443:443"
