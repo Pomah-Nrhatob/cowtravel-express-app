@@ -7,7 +7,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ./images:/app/images
+      - /images:/app/images
 
   db:
     image: postgres
