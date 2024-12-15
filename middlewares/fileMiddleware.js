@@ -2,7 +2,7 @@ const multer = require("multer");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "images/imageForChapter");
+    cb(null, "../images/imageForChapter");
   },
   filename: function (req, file, cb) {
     let extArray = file.mimetype.split("/");
