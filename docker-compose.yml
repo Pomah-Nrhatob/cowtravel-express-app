@@ -8,6 +8,7 @@ services:
       - db
     volumes:
       - /images/imageForChapter:/app/images/imageForChapter
+      - /images/imageForMainPage:/app/images/imageForMainPage
 
   db:
     image: postgres
