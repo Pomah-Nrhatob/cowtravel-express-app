@@ -3,7 +3,7 @@ const { Chapter, Image, Travel } = require("../models/models");
 
 class ChapterController {
   async create(req, res, next) {
-    const { title, content, travelId } = req.body;
+    const { title, content, travelId, seqNumber } = req.body;
     try {
       const travel = await Travel.findOne({ where: { id: travelId } });
 
@@ -15,6 +15,7 @@ class ChapterController {
         title,
         content,
         travelId,
+        seqNumber,
       });
       return res.json(chapter);
     } catch (e) {
@@ -48,7 +49,7 @@ class ChapterController {
       });
 
       return res.json(
-        chaptersWithPhoto.sort((a, b) => a.createdAt - b.createdAt)
+        chaptersWithPhoto.sort((a, b) => a.seqNumber - b.seqNumber)
       );
     } catch (e) {
       next(e);
@@ -86,9 +87,9 @@ class ChapterController {
       if (travel.userId !== req.user.id) {
         return next(ApiError.UnathorizedError());
       }
-      const { title, content } = req.body;
+      const { title, content, seqNumber } = req.body;
       const chapter = await Chapter.update(
-        { title, content },
+        { title, content, seqNumber },
         { where: { id } }
       );
       return res.json(chapter);

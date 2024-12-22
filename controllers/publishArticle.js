@@ -52,6 +52,7 @@ class PublishArticleController {
             authorId: travel.userId,
             chapterId: chapter.id,
             publishedTravelsId: publishedTravels.id,
+            seqNumber: chapter.seqNumber,
           };
         });
 
@@ -134,9 +135,13 @@ class PublishArticleController {
         };
       });
 
+      const sortChapters = chaptersWithPhoto.sort(
+        (a, b) => a.seqNumber - b.seqNumber
+      );
+
       return res.json({
         publishedTravel,
-        publishedChapters: chaptersWithPhoto,
+        publishedChapters: sortChapters,
       });
     } catch (error) {
       next(error);
@@ -174,28 +179,22 @@ class PublishArticleController {
         return res;
       });
 
-      const publishedChapters = await PublishedChapters.findAll({
+      const deleted = await PublishedChapters.destroy({
         where: { publishedTravelsId: article.id },
       });
 
       const newChapters = chapters.map((chapter) => {
-        const chapters = publishedChapters.filter(
-          (el) => el.chapterId == chapter.id
-        );
-
         return {
-          id: chapters.length > 0 ? chapters[0]?.id : v4(),
           title: chapter.title,
           content: chapter.content,
-          chapterId: chapter.id,
-          publishedTravelsId: publishedTravel.id,
           authorId: travel.userId,
+          chapterId: chapter.id,
+          publishedTravelsId: article.id,
+          seqNumber: chapter.seqNumber,
         };
       });
 
-      await PublishedChapters.bulkCreate([...newChapters], {
-        updateOnDuplicate: ["title", "content"],
-      });
+      await PublishedChapters.bulkCreate([...newChapters]);
 
       return res.json("Изменения внесены в статью");
     } catch (error) {

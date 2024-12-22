@@ -58,6 +58,7 @@ const Chapter = sequelize.define("chapter", {
   },
   title: { type: DataTypes.STRING },
   content: { type: DataTypes.TEXT },
+  seqNumber: { type: DataTypes.NUMBER },
 });
 
 const PublishedChapters = sequelize.define("publishedChapters", {
@@ -72,6 +73,7 @@ const PublishedChapters = sequelize.define("publishedChapters", {
   authorId: { type: DataTypes.STRING },
   chapterId: { type: Sequelize.UUID },
   publishedTravelsId: { type: Sequelize.UUID },
+  seqNumber: { type: DataTypes.NUMBER },
 });
 
 const Image = sequelize.define("image", {
