@@ -6,7 +6,6 @@ services:
       - "3000:3000"
     depends_on:
       - db
-    entrypoint: ["/bin/bash", "./entrypoint.sh"]
     volumes:
       - /images/imageForChapter:/app/images/imageForChapter
       - /images/imageForMainPage:/app/images/imageForMainPage
