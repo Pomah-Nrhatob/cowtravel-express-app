@@ -9,6 +9,8 @@ const User = sequelize.define("user", {
   role: { type: DataTypes.STRING, defaultValue: "USER" },
   isActivated: { type: DataTypes.BOOLEAN, defaultValue: false },
   activationLink: { type: DataTypes.STRING },
+  favoriteArticles: { type: DataTypes.ARRAY(DataTypes.STRING) },
+  isLikeArticles: { type: DataTypes.ARRAY(DataTypes.STRING) },
 });
 
 const Token = sequelize.define("token", {
@@ -47,6 +49,9 @@ const PublishedTravels = sequelize.define("publishedTravels", {
   userName: { type: DataTypes.STRING },
   travelId: { type: Sequelize.UUID },
   imagePath: { type: DataTypes.STRING },
+  isFavoriteCount: { type: DataTypes.INTEGER },
+  rating: { type: DataTypes.INTEGER },
+  viewCount: { type: DataTypes.INTEGER },
 });
 
 const Chapter = sequelize.define("chapter", {

@@ -139,6 +139,11 @@ class PublishArticleController {
         (a, b) => a.seqNumber - b.seqNumber
       );
 
+      await PublishedTravels.increment("viewCount", {
+        by: 1,
+        where: { id: articleId },
+      });
+
       return res.json({
         publishedTravel,
         publishedChapters: sortChapters,

@@ -71,6 +71,7 @@ class UserService {
     if (!user.isActivated) {
       throw ApiError.NotVerified();
     }
+
     const userDto = new UserDto(user);
     const tokens = tokenService.generateToken({ ...userDto });
     await tokenService.saveToken(userDto.id, tokens.refreshToken);
